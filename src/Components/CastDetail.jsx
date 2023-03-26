@@ -31,7 +31,9 @@ const CastDetails = () => {
       <div>{details.birthday}</div>
       <div>
         <img src={`${image_Base_Url}/${details.profile_path}`} alt="" />
+        <p>{details.biography}</p>
         <p>{details.place_of_birth}</p>
+        <h2>{details.known_for_department}</h2>
       </div>
     </div>
   );
