@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../Utils/API";
 const key = process.env.REACT_APP_API_KEY;
+  const image_Base_Url = "https://image.tmdb.org/t/p/w500";
+
 
 const CastDetails = () => {
   const [details, setDetails] = useState([]);
@@ -12,6 +14,7 @@ const CastDetails = () => {
     try {
       const response = await axios.get(`/person/${castId}?api_key=${key}`);
       setDetails(response.data);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -23,18 +26,12 @@ const CastDetails = () => {
 
   return (
     <div>
-        <h1>{details.name}</h1>
+      <h1>{details && details.name}</h1>
       Cast Details here:
+      <div>{details.birthday}</div>
       <div>
-        {details &&
-          details?.data &&
-          details.data.map((crew) => {
-            return (
-              <div key={crew?.id}>
-                <h1>{crew && crew.biography}</h1>
-              </div>
-            );
-          })}
+        <img src={`${image_Base_Url}/${details.profile_path}`} alt="" />
+        <p>{details.place_of_birth}</p>
       </div>
     </div>
   );
