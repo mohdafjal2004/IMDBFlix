@@ -14,8 +14,8 @@ const MovieDetails = () => {
   const fetchDetails = () => {
     axios
       .get(`/movie/${id}?api_key=${key}`)
-      .then((response) => setApi(response.data))
-      // .then((abc) => console.log(abc?.genres.name));
+      .then((response) => setApi(response.data));
+    // .then((abc) => console.log(abc?.genres.name));
   };
 
   const fetchCast = () => {
@@ -35,6 +35,7 @@ const MovieDetails = () => {
     fetchCast();
     similar();
   }, [id]);
+
   const rating = Math.round(Api.vote_average);
 
   return (
@@ -64,19 +65,18 @@ const MovieDetails = () => {
           })}
       </div>
 
-
       <div>
         {same.results?.map((movie) => {
-        return  (
-          <div>
-        <h1>{movie.original_title}</h1>
-        <img src={`${Banner_Base_Url}/${movie.backdrop_path}`} alt="" />;
-
-        </div>
-        )})}
+          return (
+            <div key={movie.id}>
+              <h1>{movie.original_title}</h1>
+              <Link to={`/category/${movie.id}`}>
+                <img src={`${Banner_Base_Url}/${movie.backdrop_path}`} alt="" />
+              </Link>
+            </div>
+          );
+        })}
       </div>
-
-
     </div>
   );
 };

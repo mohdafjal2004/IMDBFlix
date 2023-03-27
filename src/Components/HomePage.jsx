@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import Categories from "./Categories";
 
 const HomePage = () => {
   return (
     <div>
-      <Link to="/category">Go to Categories</Link>
+      <Link to="/popular">Popular Movies</Link> <br />
+      <Link to="/top-rated">Top-Rated Movies</Link>
+      <br />
+      <Link to="/up-coming">Upcoming Movies</Link> <br />
+      <Link to="/genres">Movies with genres</Link>
     </div>
   );
 };
