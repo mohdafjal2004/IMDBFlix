@@ -1,6 +1,6 @@
 import react, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "../Utils/API";
+import axios from "../../Utils/API";
 const key = process.env.REACT_APP_API_KEY;
 
 const Upcoming = () => {

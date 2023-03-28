@@ -1,17 +1,17 @@
 import react, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "../Utils/API";
+import axios from "../../Utils/API";
 const key = process.env.REACT_APP_API_KEY;
 
-const TopRated = () => {
+const Categories = () => {
   const image_Base_Url = "https://image.tmdb.org/t/p/w500";
-  const [top, setTop] = useState({});
-  console.log(top);
+  const [popular, setpopular] = useState({});
+  console.log(popular);
 
   const fetch = async () => {
     await axios
-      .get(`/movie/top_rated?api_key=${key}`)
-      .then((response) => setTop(response.data));
+      .get(`/movie/popular?api_key=${key}`)
+      .then((response) => setpopular(response.data));
   };
 
   useEffect(() => {
@@ -20,9 +20,9 @@ const TopRated = () => {
 
   return (
     <div>
-      {top &&
-        top.results &&
-        top.results.map((data) => {
+      {popular &&
+        popular.results &&
+        popular.results.map((data) => {
           return (
             <h1 key={data.id}>
               <p>{data.original_title}</p>
@@ -36,4 +36,4 @@ const TopRated = () => {
   );
 };
 
-export default TopRated;
+export default Categories;

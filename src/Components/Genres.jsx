@@ -21,8 +21,8 @@ const Genres = () => {
   }, []);
 
   const handleOptions = (e) => {
-    const selectedId = e.target.value;
-    Navigate(`/genres/${selectedId}`);
+    const genreId = e.target.value;
+    Navigate(`/genres/${genreId}`);
   };
 
   return (
@@ -30,7 +30,7 @@ const Genres = () => {
       <h1>Select Genres</h1>
       <select name="Genres" onChange={handleOptions}>
         {genre &&
-          genre.genres?.map((movie) => {
+          genre.genres?.map((movie, index) => {
             return (
               <option value={movie.id} key={movie.id}>
                 {movie.name}
