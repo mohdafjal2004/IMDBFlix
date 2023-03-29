@@ -20,7 +20,6 @@ import Drama from "./Components/Genres/Drama";
 function App() {
   return (
     <div className="App">
-      Hello React
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
