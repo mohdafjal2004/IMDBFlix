@@ -19,11 +19,11 @@ import Drama from "./Components/Genres/Drama";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-black">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/popular" element={<Categories />} />
+          <Route path="/" element={<Categories />} />
           <Route path="/romance" element={<Romance />} />
           <Route path="/romance" element={<Romance />} />
           <Route path="/horror" element={<Horror />} />

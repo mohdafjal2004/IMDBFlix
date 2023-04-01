@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import Categories from "../Genres/Popular";
 
 const Hero = () => {
   return (
     <div>
-      <Link to="/genres">Movies with genres</Link>
+      {/* <Link to="/genres">Movies with genres</Link> */}
       <br />
-      <Link to="/popular">Popular on Netflix</Link> <br />
+      <Categories/>
       <Link to="/top-rated">Top-Rated Movies</Link>
       <br />
       <Link to="/up-coming">Upcoming Movies</Link> <br />
