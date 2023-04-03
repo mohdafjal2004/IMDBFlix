@@ -1,4 +1,5 @@
 import "./App.css";
+
 import Categories from "./Components/Genres/Popular";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
@@ -16,6 +17,8 @@ import Action from "./Components/Genres/Actions";
 import Trending from "./Components/Genres/Trending";
 import Animated from "./Components/Genres/Animated";
 import Drama from "./Components/Genres/Drama";
+
+
 
 function App() {
   return (
