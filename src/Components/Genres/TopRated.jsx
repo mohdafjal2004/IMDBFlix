@@ -7,15 +7,15 @@ import "slick-carousel/slick/slick-theme.css";
 const key = process.env.REACT_APP_API_KEY;
 
 const TopRated = () => {
-   var settings = {
-     dots: true,
-     infinite: true,
-     slidesToShow: 6,
-     slidesToScroll: 1,
-     // autoplay: true,
-     autoplaySpeed: 1500,
-     pauseOnHover: true,
-   };
+  var settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    // autoplay: true,
+    autoplaySpeed: 1500,
+    pauseOnHover: true,
+  };
   const image_Base_Url = "https://image.tmdb.org/t/p/w500";
   const [top, setTop] = useState({});
 
@@ -35,23 +35,23 @@ const TopRated = () => {
         Top-Rated
       </h1>
       <Slider {...settings}>
-      {top &&
-        top.results &&
-        top.results.map((data) => {
-          return (
-            <h1 key={data.id}>
-              <p>{data.original_title}</p>
-              <Link to={`/category/${data.id}`}>
-                <img
-                  src={`${image_Base_Url}/${data.poster_path}`}
-                  alt=""
-                  className="h-[350px] w-[250px] rounded hover:scale-95 translate-x-2 ease duration-200"
-                />
-              </Link>
-            </h1>
-          );
-        })}
-        </Slider>
+        {top &&
+          top.results &&
+          top.results.map((data) => {
+            return (
+              <h1 key={data.id}>
+                <p>{data.original_title}</p>
+                <Link to={`/category/${data.id}`}>
+                  <img
+                    src={`${image_Base_Url}/${data.poster_path}`}
+                    alt=""
+                    className="h-[350px] w-[250px] rounded hover:scale-95 translate-x-2 ease duration-200"
+                  />
+                </Link>
+              </h1>
+            );
+          })}
+      </Slider>
     </div>
   );
 };

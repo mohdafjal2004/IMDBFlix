@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link,} from "react-router-dom";
 import axios from "../../Utils/API";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Drama = () => {
+  var settings = {
+    // dots: true,
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    // autoplay: true,
+    autoplaySpeed: 1500,
+    pauseOnHover: true,
+  };
   const image_Base_Url = "https://image.tmdb.org/t/p/w500";
 
   const [details, setDetails] = useState();
@@ -19,20 +31,28 @@ const Drama = () => {
   }, []);
 
   return (
-    <h1>
-      Genres Movies here
-      {details &&
-        details?.results.map((movie) => {
-          return (
-            <div key={movie.id}>
-              <h1>{movie.original_title}</h1>
-              <Link to={`/category/${movie.id}`}>
-                <img src={`${image_Base_Url}/${movie.poster_path}`} alt="" />
-              </Link>
-            </div>
-          );
-        })}
-    </h1>
+    <div className="ml-6 mr-5 mt-8">
+      <h1 className="text-white text-left mb-3 font- font-bold text-2xl text">
+        Drama Movies
+      </h1>
+      <Slider {...settings}>
+        {details &&
+          details?.results.map((movie) => {
+            return (
+              <div key={movie.id} >
+                <h1>{movie.original_title}</h1>
+                <Link to={`/category/${movie.id}`}>
+                  <img
+                    src={`${image_Base_Url}/${movie.poster_path}`}
+                    alt=""
+                    className="h-[350px] w-[250px] mx-4  rounded hover:scale-95 translate-x-2 ease duration-200"
+                  />
+                </Link>
+              </div>
+            );
+          })}
+      </Slider>
+    </div>
   );
 };
 

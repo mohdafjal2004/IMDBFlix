@@ -22,11 +22,10 @@ const HeroImage = () => {
   }, []);
 
   const bgImage = `${image_Base_Url}${popular.backdrop_path}`;
-  console.log(bgImage);
 
   return (
     <div
-      className=" relative bg-no-repeat  h-auto md:h-[500px] bg-cover md:bg-cover pt-20 sm:pb-44 pb-20 text-white bg-center  shadow-2xl shadow-zinc-900 "
+      className=" relative bg-no-repeat  h-auto md:h-[600px] bg-cover md:bg-cover pt-20 sm:pb-44 pb-20 text-white   shadow-zinc-900 bg-center md:bg-right-top aspect-auto"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="text-start  ml-3 md:ml-6 space-y-4 sm:w-1/2 md:w-[600px]   ">

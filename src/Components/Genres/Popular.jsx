@@ -32,7 +32,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="ml-6 mr-5 mt-6">
+    <div className="ml-6 mr-5 mt-6 ">
       <h1 className="text-white text-left mb-3 font- font-bold text-2xl text">
         Popular on Netflix
       </h1>
