@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../Utils/API";
 import Slider from "react-slick";
@@ -32,7 +32,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="ml-6 mr-5 ">
+    <div className="ml-6 mr-5 mt-6">
       <h1 className="text-white text-left mb-3 font- font-bold text-2xl text">
         Popular on Netflix
       </h1>
@@ -49,7 +49,7 @@ const Categories = () => {
                 <img
                   src={`${image_Base_Url}/${data.poster_path}`}
                   alt=""
-                  className="h-[350px] w-[230px] rounded hover:scale-95 translate-x-2 ease duration-200"
+                  className="h-[350px] w-[250px] rounded hover:scale-95 translate-x-2 ease duration-200"
                 />
               </Link>
             );

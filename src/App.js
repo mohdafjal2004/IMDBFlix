@@ -28,13 +28,12 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/" element={<Categories />} />
           <Route path="/romance" element={<Romance />} />
-          <Route path="/romance" element={<Romance />} />
           <Route path="/horror" element={<Horror />} />
           <Route path="/comedy" element={<Comedy />} />
           <Route path="/animated" element={<Animated />} />
           <Route path="/drama" element={<Drama />} />
           <Route path="/tv" element={<TvMovies />} />
-          <Route path="/trending" element={<Trending />} />
+          <Route path="/" element={<Trending />} />
           <Route path="/top-rated" element={<TopRated />} />
           <Route path="/action" element={<Action />} />
           <Route path="/up-coming" element={<Upcoming />} />

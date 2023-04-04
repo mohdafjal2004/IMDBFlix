@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
 import Categories from "../Genres/Popular";
+import Trending from "../Genres/Trending";
+import TopRated from "../Genres/TopRated";
+import Upcoming from "../Genres/Upcoming";
 
 const Hero = () => {
   return (
     <div>
       {/* <Link to="/genres">Movies with genres</Link> */}
-      <br />
-      <Categories/>
-      <Link to="/top-rated">Top-Rated Movies</Link>
-      <br />
+      {/* <br /> */}
+      <Categories />
+      <Trending />
+      <TopRated/>
+      <Upcoming/>
       <Link to="/up-coming">Upcoming Movies</Link> <br />
       <Link to="/romance">Romance</Link>
       <br />
@@ -20,7 +24,6 @@ const Hero = () => {
       <br />
       <Link to="/action">Action Movies</Link>
       <br />
-      <Link to="/trending">Trending Movies</Link>
       <br />
       <Link to="/animated">Animated Movies</Link>
       <br />
