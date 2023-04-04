@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        duo: "480px",
+        sixh: "600px",
+      },
+    },
     roboto: ["Radio Canada", "sans-serif"],
     roboto2: ["Roboto Serif", "serif"],
   },
