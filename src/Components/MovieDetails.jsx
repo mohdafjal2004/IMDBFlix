@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "../Utils/API";
 import Slider from "react-slick";
+import man from "./Assets/man.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const key = process.env.REACT_APP_API_KEY;
 
 const MovieDetails = () => {
   var settings = {
-   
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -108,8 +108,8 @@ const MovieDetails = () => {
   const rating = Math.round(Api.vote_average);
 
   return (
-    <div className="parent">
-      <div className="movie_detail_outside  relative h-auto  ">
+    <div className="parent ">
+      <div className="movie_detail_outside  h-auto  ">
         <div
           className="movie_detail_inside sm:flex sm:flex-row flex flex-col  sm:h-[500px] h-auto
          bg-slate-800 w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative"
@@ -162,22 +162,36 @@ const MovieDetails = () => {
         </div>
       </div>
 
-      <div className="ml-12  sm:ml-6 duo:ml-6 mr-5 mt-8 text-center ">
-        <h1 className="text-white text-left mb-3 font- font-bold text-2xl text">
-          Popular on Netflix
+      <div className="ml-12  sm:ml-6 duo:ml-6 mr-5 mt-14 mb-7 text-center ">
+        <h1 className="text-white font-roboto text-2xl duo:text-3xl sm:text-left  font-extrabold">
+          Cast
         </h1>
         <Slider {...settings}>
           {cast &&
             cast.cast?.map((data) => {
               return (
                 <Link to={`/castDetails/${data.id}`} key={data.id}>
-                  <div>
+                  <div className="relative">
                     <p>{data.name}</p>
-                    <img
-                      src={`${Banner_Base_Url}/${data.profile_path}`}
-                      alt={data.profile_path}
-                      className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200 "
-                    />
+                    {data.profile_path === null ? (
+                      <img
+                        src={man}
+                        alt={data.profile_path}
+                        className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200   opacity-75"
+                      />
+                    ) : (
+                      <img
+                        src={`${Banner_Base_Url}/${data.profile_path}`}
+                        alt="Cast profile not available"
+                        className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200    opacity-75"
+                      />
+                    )}
+                    <div className="text-white flex flex-col absolute top-10 px-20 pt-52  ">
+                      <p className=" font-roboto font-semibold">
+                        {data.original_name}
+                      </p>
+                      <p className=" font-roboto ">{data.character}</p>
+                    </div>
                   </div>
                 </Link>
               );
@@ -185,17 +199,36 @@ const MovieDetails = () => {
         </Slider>
       </div>
 
-      <div>
-        {same.results?.map((movie) => {
-          return (
-            <div key={movie.id}>
-              <h1>{movie.original_title}</h1>
-              <Link to={`/category/${movie.id}`}>
-                <img src={`${Banner_Base_Url}/${movie.backdrop_path}`} alt="" />
-              </Link>
-            </div>
-          );
-        })}
+      <div className="ml-12  sm:ml-6 duo:ml-6 mr-5 mt-14 ">
+        <h1 className="text-white font-roboto text-2xl duo:text-3xl sm:text-left  font-extrabold">
+          Similar Movies
+        </h1>
+        <div className="mx-2 grid md:grid-cols-4 duo:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 ">
+          {same.results?.map((movie) => {
+            return (
+              <div key={movie.id}>
+                <Link to={`/category/${movie.id}`}>
+                  {movie.poster_path === null ? (
+                    <img
+                      src={man}
+                      alt={movie.poster_path}
+                      className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200   opacity-75"
+                    />
+                  ) : (
+                    <img
+                      src={`${Banner_Base_Url}/${movie.poster_path}`}
+                      alt="Cast profile not available"
+                      className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200    opacity-75"
+                    />
+                  )}
+                  <h1 className="text-white grid justify-items-center pr-4 font-roboto font-bold">
+                    {movie.original_title}
+                  </h1>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
