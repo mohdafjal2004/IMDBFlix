@@ -14,7 +14,7 @@ const Categories = () => {
      infinite: true,
      slidesToShow: 6,
      slidesToScroll: 1,
-     // autoplay: true,
+     autoplay: true,
      autoplaySpeed: 1500,
      pauseOnHover: true,
 

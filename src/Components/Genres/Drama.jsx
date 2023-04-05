@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Drama = () => {
   var settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 1,

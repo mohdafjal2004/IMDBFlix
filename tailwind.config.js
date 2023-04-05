@@ -8,8 +8,10 @@ module.exports = {
         sixh: "600px",
       },
     },
-    roboto: ["Radio Canada", "sans-serif"],
-    roboto2: ["Roboto Serif", "serif"],
+    fontFamily: {
+      roboto: ["Radio Canada", "sans-serif"],
+      roboto2: ["Roboto Serif", "serif"],
+    },
   },
   plugins: [],
 };

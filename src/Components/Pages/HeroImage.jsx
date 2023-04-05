@@ -6,7 +6,6 @@ const key = process.env.REACT_APP_API_KEY;
 const HeroImage = () => {
   const image_Base_Url = "https://image.tmdb.org/t/p/original";
   const [popular, setPopular] = useState({});
-  console.log(popular);
 
   const fetch = async () => {
     const response = await axios.get(`/movie/popular?api_key=${key}`);
@@ -29,11 +28,11 @@ const HeroImage = () => {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="text-start  ml-3 md:ml-6 space-y-4 sm:w-1/2 md:w-[600px]   ">
-        <h1 className="md:text-5xl text-4xl font-roboto2 font-bold">
+        <h1 className="md:text-5xl text-4xl font-roboto font-extrabold">
           {popular.original_title}
         </h1>
 
-        <div className="flex flex-row space-x-4 items-start text-lg font-semibold font-roboto2">
+        <div className="flex flex-row space-x-4 items-start text-lg font-semibold font-roboto">
           <button className="flex  justify-center items-center bg-white text-black  rounded py-2 w-32 h-11">
             Play
           </button>
