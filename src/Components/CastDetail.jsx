@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "../Utils/API";
+import bg from './Assets/bg.jpg'
 const key = process.env.REACT_APP_API_KEY;
 const image_Base_Url = "https://image.tmdb.org/t/p/w500";
+
 
 const CastDetails = () => {
   const [details, setDetails] = useState([]);
@@ -41,7 +43,10 @@ const CastDetails = () => {
   return (
     <div className="parent ">
       {/* Fetching Details of the Cast */}
-      <div className="cast_detail_outside  sm:flex  bg-slate-500   h-auto pb-10 ">
+      <div
+        className="cast_detail_outside  sm:flex     h-auto pb-10 bg-cover"
+        style={{ backgroundImage: `url(${bg})` }}
+      >
         <div className="cast_detail_inside  sm:py-10 " />
         <div className="relative    py-10 px-6 pl-10 fourh:pl-16">
           <img
@@ -73,7 +78,7 @@ const CastDetails = () => {
         <h1 className="text-white font-roboto text-2xl duo:text-3xl duo:text-left  font-extrabold sm:ml-7 mb-10">
           Similar Movies
         </h1>
-        <div className="mx-2 grid md:grid-cols-4 duo:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="mx-2 grid md:grid-cols-4 duo:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 ">
           {first50 &&
             first50.map((movies) => {
               return (
@@ -84,7 +89,7 @@ const CastDetails = () => {
                       alt=""
                       className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200    opacity-75"
                     />
-                    <h3 className="text-white grid justify-items-center pr-4 font-roboto font-bold">
+                    <h3 className="text-white grid justify-items-center pr-4 font-roboto font-bold mb-10">
                       {movies.original_title}
                     </h3>
                   </Link>

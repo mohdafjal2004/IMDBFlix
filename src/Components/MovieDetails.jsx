@@ -116,7 +116,7 @@ const MovieDetails = () => {
       <div className="movie_detail_outside  h-auto  ">
         <div
           className="movie_detail_inside sm:flex sm:flex-row flex flex-col  sm:h-[500px] h-auto
-          w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative opacity-75 bg-center bg-cover "
+          w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative  bg-center bg-cover "
           style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="relative">
@@ -217,7 +217,7 @@ const MovieDetails = () => {
                     <img
                       src={poster}
                       alt={movie.poster_path}
-                      className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200   opacity-75"
+                      className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200  "
                     />
                   ) : (
                     <img
