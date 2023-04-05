@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "../Utils/API";
 import Slider from "react-slick";
 import man from "./Assets/man.png";
+import poster from "./Assets/else.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const key = process.env.REACT_APP_API_KEY;
@@ -74,6 +75,8 @@ const MovieDetails = () => {
   };
 
   const Banner_Base_Url = "https://image.tmdb.org/t/p/w500";
+  const image_Base_Url = "https://image.tmdb.org/t/p/original";
+
   const { id } = useParams();
   const [Api, setApi] = useState("");
   const [cast, setCast] = useState([]);
@@ -106,13 +109,15 @@ const MovieDetails = () => {
   }, [id]);
 
   const rating = Math.round(Api.vote_average);
+  const bgImage = `${image_Base_Url}${Api.backdrop_path}`;
 
   return (
     <div className="parent ">
       <div className="movie_detail_outside  h-auto  ">
         <div
           className="movie_detail_inside sm:flex sm:flex-row flex flex-col  sm:h-[500px] h-auto
-         bg-slate-800 w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative"
+          w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative opacity-75 bg-center bg-cover "
+          style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="relative">
             <img
@@ -123,7 +128,7 @@ const MovieDetails = () => {
           </div>
           <div className="text-white ml-3 sm:ml-7 xl:pb-[150px] 2xl:pb-[170px]  sm:text-left sm:w-1/2 pt-8 space-y-2 h-auto ">
             {Api.tagline ? (
-              <p className="text-xs font-roboto">{Api && Api.tagline}</p>
+              <p className="text-xs font-roboto mb-3">{Api && Api.tagline}</p>
             ) : (
               ""
             )}
@@ -210,7 +215,7 @@ const MovieDetails = () => {
                 <Link to={`/category/${movie.id}`}>
                   {movie.poster_path === null ? (
                     <img
-                      src={man}
+                      src={poster}
                       alt={movie.poster_path}
                       className="h-[300px] w-[250px] duo:w-[200px] 2xl: sixh:w-[180px]  2xl:w-[250px] rounded-lg hover:scale-95 translate-x-2 ease duration-200   opacity-75"
                     />

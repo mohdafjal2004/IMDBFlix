@@ -6,6 +6,7 @@ module.exports = {
       screens: {
         duo: "480px",
         sixh: "600px",
+        fourh: "400px",
       },
     },
     fontFamily: {
