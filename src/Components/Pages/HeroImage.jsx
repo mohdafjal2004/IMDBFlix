@@ -20,7 +20,7 @@ const HeroImage = () => {
     fetch();
   }, []);
 
-  const bgImage = `${image_Base_Url}/${popular.backdrop_path}`;
+  const bgImage = `${image_Base_Url}${popular.backdrop_path}`;
 
   return (
     <div
