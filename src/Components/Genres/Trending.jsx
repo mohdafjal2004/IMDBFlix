@@ -78,7 +78,9 @@ const Trending = () => {
   const [details, setDetails] = useState();
 
   const getDetails = async () => {
-    const response = await axios.get(`/trending/movie/week?api_key=${key}`);
+    const response = await axios.get(
+      `/trending/movie/week?api_key=${key}&language=en-US`
+    );
     setDetails(response.data);
   };
 

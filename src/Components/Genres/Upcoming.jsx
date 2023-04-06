@@ -81,7 +81,7 @@ const Upcoming = () => {
 
   const fetch = async () => {
     await axios
-      .get(`/movie/upcoming?api_key=${key}`)
+      .get(`/movie/upcoming?api_key=${key}&language=en-US`)
       .then((response) => setTop(response.data));
   };
 

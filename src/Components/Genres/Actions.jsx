@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 const Action = () => {
+  const key = process.env.REACT_APP_API_KEY;
   var settings = {
     dots: true,
     infinite: true,
@@ -79,7 +80,7 @@ const Action = () => {
 
   const getDetails = async () => {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=28&api_key=f96196fc3adf81122dbf396281fdc4ee&language=en-US`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=28&api_key=${key}`
     );
     setDetails(response.data);
   };

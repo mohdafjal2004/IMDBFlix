@@ -78,7 +78,7 @@ const TopRated = () => {
 
   const fetch = async () => {
     await axios
-      .get(`/movie/top_rated?api_key=${key}`)
+      .get(`/movie/top_rated?api_key=${key}&language=en-US`)
       .then((response) => setTop(response.data));
   };
 
