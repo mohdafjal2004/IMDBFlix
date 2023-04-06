@@ -44,8 +44,8 @@ const CastDetails = () => {
     <div className="parent ">
       {/* Fetching Details of the Cast */}
       <div
-        className="cast_detail_outside  sm:flex     h-auto pb-10 bg-cover"
-        style={{ backgroundImage: `url(${bg})` }}
+        className="cast_detail_outside  sm:flex  bg-slate-600   h-auto pb-10 bg-cover"
+       
       >
         <div className="cast_detail_inside  sm:py-10 " />
         <div className="relative    py-10 px-6 pl-10 fourh:pl-16">
