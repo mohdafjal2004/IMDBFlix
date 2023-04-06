@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className="">
       <Navbar />
-      <HeroImage/>
+      <HeroImage />
       <Hero />
     </div>
   );

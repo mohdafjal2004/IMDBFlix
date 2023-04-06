@@ -5,10 +5,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const key = process.env.REACT_APP_API_KEY;
 
 const Categories = () => {
-
+  
+  const key = process.env.REACT_APP_API_KEY;
    var settings = {
      dots: true,
      infinite: true,
