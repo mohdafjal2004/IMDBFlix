@@ -6,7 +6,7 @@ import Navbar from "./Components/Pages/Navbar";
 const HomePage = () => {
   return (
     <div className="">
-      <Navbar />
+
       <HeroImage />
       <Hero />
     </div>

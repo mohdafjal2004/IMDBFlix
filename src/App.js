@@ -17,6 +17,7 @@ import Action from "./Components/Genres/Actions";
 import Trending from "./Components/Genres/Trending";
 import Animated from "./Components/Genres/Animated";
 import Drama from "./Components/Genres/Drama";
+import Navbar from "./Components/Pages/Navbar";
 
 
 
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="App bg-black">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/" element={<Categories />} />
