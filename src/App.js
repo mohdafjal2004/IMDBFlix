@@ -18,8 +18,7 @@ import Trending from "./Components/Genres/Trending";
 import Animated from "./Components/Genres/Animated";
 import Drama from "./Components/Genres/Drama";
 import Navbar from "./Components/Pages/Navbar";
-
-
+import Type from "./Components/Pages/Type";
 
 function App() {
   return (
@@ -42,6 +41,7 @@ function App() {
           <Route path="/category/:id" element={<MovieDetails />} />
           <Route path="/castDetails/:castId" element={<CastDetails />} />
           <Route path="/genres" element={<Genres />} />
+          <Route path="/type" element={<Type />} />
           <Route path="/genres/:genreId" element={<GenreList />} />
         </Routes>
       </BrowserRouter>

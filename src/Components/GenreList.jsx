@@ -4,6 +4,8 @@ import axios from "../Utils/API";
 
 const GenreList = () => {
   const image_Base_Url = "https://image.tmdb.org/t/p/w500";
+    const key = process.env.REACT_APP_API_KEY;
+
 
   const { genreId } = useParams();
   console.log(genreId)
@@ -11,7 +13,7 @@ const GenreList = () => {
 
   const getDetails = async () => {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&api_key=f96196fc3adf81122dbf396281fdc4ee&language=en-US`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&api_key=${key}&language=en-US`
     );
     setDetails(response.data);
   };
