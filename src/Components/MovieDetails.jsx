@@ -117,7 +117,7 @@ const MovieDetails = () => {
       <div className="movie_detail_outside  h-auto  ">
         <div
           className="movie_detail_inside sm:flex sm:flex-row flex flex-col  sm:h-[500px] h-auto
-          w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative  bg-center bg-cover border-4"
+          w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative  bg-center bg-cover"
           style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="relative">

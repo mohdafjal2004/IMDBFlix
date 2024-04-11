@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DiscoverCard from "../DiscoverCard";
+import loader from "../Assets/loader_animated.svg";
 
 const Type = () => {
   const location = useLocation();
@@ -10,7 +11,7 @@ const Type = () => {
   const [apiData, setApiData] = useState([]);
   const [currPage, setCurrPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  console.log(loading)
+  console.log(loading);
 
   const fetch = async () => {
     setLoading(true);
@@ -27,11 +28,11 @@ const Type = () => {
         );
 
         setApiData(res.data);
-        setLoading(false)
+        setLoading(false);
       }
     } catch (error) {
       console.log(error);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -52,40 +53,48 @@ const Type = () => {
 
   return (
     <div className="text-white ">
-      {loading ? <p>Loading...</p> : ( <div>
+      {loading ? (
+        <p className="flex justify-center max-h-screen ">
+          <img src={loader} alt="loader_icon" className="p-20" />
+        </p>
+      ) : (
         <div>
-          <h1 className="text-left md:px-6  2xl:px-24 px-4 my-5 text-2xl font-semibold">
-            Discover here
-          </h1>
-          <div className="flex flex-wrap  justify-center items-center gap-6 md:px-6  2xl:px-24 md:justify-between  overflow-x-hidden  py-5  md:pb-28">
-            {apiData &&
-              apiData?.results?.map((item) => (
-                <div
-                  key={item.id}
-                  className=" duo:w-52 lg:w-72 xl:w-64 box-border "
-                >
-                  <DiscoverCard item={item} />
-                </div>
-              ))}
+          <div>
+            <h1 className="text-left md:px-6  2xl:px-24 px-4 my-5 text-2xl font-semibold">
+              Discover here
+            </h1>
+            <div className="flex flex-wrap  justify-center items-center gap-6 md:px-6  2xl:px-24 md:justify-between  overflow-x-hidden  py-5  md:pb-28">
+              {apiData &&
+                apiData?.results?.map((item) => (
+                  <div
+                    key={item.id}
+                    className=" duo:w-52 lg:w-72 xl:w-64 box-border "
+                  >
+                    <DiscoverCard item={item} />
+                  </div>
+                ))}
+            </div>
           </div>
+          {!loading ? (
+            <div className="mt-7 grid grid-cols-2 md:px-6  2xl:px-24 font-semibold text-lg">
+              <button
+                className=" border px-4  justify-self-start rounded-md"
+                onClick={handleLoadPrevios}
+              >
+                Load Previous...
+              </button>
+              <button
+                className="border p-4 justify-self-start rounded-md"
+                onClick={handleLoadMore}
+              >
+                Load More...
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
-        <div className="mt-7 grid grid-cols-2 md:px-6  2xl:px-24 font-semibold text-lg">
-          <button
-            className=" border px-4  justify-self-start rounded-md"
-            onClick={handleLoadPrevios}
-          >
-            Load Previous...
-          </button>
-          <button
-            className="border p-4 justify-self-start rounded-md"
-            onClick={handleLoadMore}
-          >
-            Load More...
-          </button>
-        </div>
-      </div>)}
-     
-      )
+      )}
     </div>
   );
 };

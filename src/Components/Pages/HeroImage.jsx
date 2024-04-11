@@ -24,7 +24,7 @@ const HeroImage = () => {
 
   return (
     <div
-      className=" relative bg-no-repeat  h-auto md:h-[600px] bg-cover md:bg-cover pt-20 sm:pb-44 pb-20 text-white   shadow-zinc-900 bg-center md:bg-right-top aspect-auto"
+      className=" relative bg-no-repeat  h-auto md:h-[600px] bg-cover md:bg-cover pt-20 sm:pb-44 pb-20 text-white  md:px-6  2xl:px-24 px-4  shadow-zinc-900 bg-center md:bg-right-top aspect-auto"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="text-start  ml-3 md:ml-6 space-y-4 sm:w-1/2 md:w-[600px]   ">

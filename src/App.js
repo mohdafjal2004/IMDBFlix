@@ -22,7 +22,7 @@ import Type from "./Components/Pages/Type";
 
 function App() {
   return (
-    <div className="App bg-black">
+    <div className="App">
       <BrowserRouter>
         <Navbar />
         <Routes>
