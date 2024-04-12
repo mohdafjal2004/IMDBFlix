@@ -54,7 +54,7 @@ const Type = () => {
   return (
     <div className="text-white ">
       {loading ? (
-        <p className="flex justify-center min-h-screen ">
+        <p className="flex flex-nowrap justify-center min-h-screen ">
           <img src={loader} alt="loader_icon" className="p-20" />
         </p>
       ) : (

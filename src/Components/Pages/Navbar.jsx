@@ -2,15 +2,20 @@ import logo from "../Assets/netflix.svg";
 import bell from "../Assets/bellsvg.svg";
 import avatar from "../Assets/avatar.png";
 import search from "../Assets/search.png";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import Search from "../Search";
 
 const Navbar = () => {
   const [isView, setIsView] = useState(false);
+  const [isInputView, setIsInputView] = useState(false);
   const handleDropDown = () => {
     setIsView(!isView);
   };
 
+  const handleInputView = () => {
+    setIsInputView(!isInputView);
+  };
   return (
     <nav className="">
       <div className="flex justify-between items-center h-16   md:px-6  2xl:px-24 px-4">
@@ -84,9 +89,23 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className="flex gap-1">
-          <img src={search} alt="searchIcon" className="w-5 h-5 mt-1" />
+          <img
+            src={search}
+            alt="searchIcon"
+            className="w-5 h-5 mt-1 cursor-pointer"
+            onClick={handleInputView}
+          />
           <img src={bell} alt="bell icon" className="w-7 h-7 mx-2" />
           <img src={avatar} alt="Account logo" className="w-7 h-7 inline" />
+        </div>
+
+
+        <div
+          className={`absolute right-0 md:right-24  z-50 transition-all ease-out duration-300 ${
+            isInputView ? "  -top-[1000px]" : " top-16"
+          }`}
+        >
+          <Search isInputView={isInputView} setIsInputView={setIsInputView} />
         </div>
       </div>
     </nav>
