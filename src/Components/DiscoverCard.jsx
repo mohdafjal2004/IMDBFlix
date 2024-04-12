@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import supportImage from "./Assets/support_image.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import playBtn from "./Assets/play.png";
 import plusBtn from "./Assets/push.png";
 import likeBtn from "./Assets/like.png";
 import arrowBtn from "./Assets/arrow.png";
 
 const DiscoverCard = ({ item }) => {
-  const navigate = useNavigate();
   const [showDetails, setShowDetails] = useState(false);
 
   const percentageVote = item && (item.vote_average / 10) * 100;
