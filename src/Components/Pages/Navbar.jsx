@@ -8,7 +8,7 @@ import Search from "../Search";
 
 const Navbar = () => {
   const [isView, setIsView] = useState(false);
-  const [isInputView, setIsInputView] = useState(false);
+  const [isInputView, setIsInputView] = useState(true);
   const handleDropDown = () => {
     setIsView(!isView);
   };

@@ -64,8 +64,9 @@ const Search = ({ setIsInputView, isInputView }) => {
           <div className="flex justify-center">
             <img src={loader} alt="loader_icon" className="h-8 w-8 " />
           </div>
-        ) : searchResults.length > 0 ? (
-          searchResults?.slice(0, 5).map((item) => (
+        ) : (
+          searchResults &&
+          (searchResults?.slice(0, 5).map((item) => (
             <div key={item.id} className="">
               <Link
                 to={`/category/${item.id}`}
@@ -92,9 +93,7 @@ const Search = ({ setIsInputView, isInputView }) => {
                 </p>
               </Link>
             </div>
-          ))
-        ) : (
-          <p>Not found...</p>
+          )))
         )}
 
         {/* {searchResults && searchResults} */}
