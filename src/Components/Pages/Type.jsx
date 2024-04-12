@@ -54,7 +54,7 @@ const Type = () => {
   return (
     <div className="text-white ">
       {loading ? (
-        <p className="flex justify-center max-h-screen ">
+        <p className="flex justify-center min-h-screen ">
           <img src={loader} alt="loader_icon" className="p-20" />
         </p>
       ) : (
@@ -76,15 +76,15 @@ const Type = () => {
             </div>
           </div>
           {!loading ? (
-            <div className="mt-7 grid grid-cols-2 md:px-6  2xl:px-24 font-semibold text-lg">
+            <div className="my-7 grid grid-cols-2 gap-4  px-4 md:px-6  2xl:px-24 md:font-semibold text-lg">
               <button
-                className=" border px-4  justify-self-start rounded-md"
+                className=" border py-2 px-1 text-sm md:px-4  md:justify-self-start rounded-md"
                 onClick={handleLoadPrevios}
               >
                 Load Previous...
               </button>
               <button
-                className="border p-4 justify-self-start rounded-md"
+                className="border py-2 px-1 text-sm md:px-4 md:justify-self-start rounded-md"
                 onClick={handleLoadMore}
               >
                 Load More...
