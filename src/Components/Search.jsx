@@ -52,7 +52,7 @@ const Search = ({ setIsInputView, isInputView }) => {
   };
 
   return (
-    <div className="text-white  z-50 border-2 w-screen md:w-auto bg-black">
+    <div className="text-white  z-50 border-2 w-screen md:w-auto bg-black ">
       <div className="flex flex-col p-4 gap-4 overflow-hidden">
         <input
           type="text"
@@ -66,11 +66,11 @@ const Search = ({ setIsInputView, isInputView }) => {
           </div>
         ) : (
           searchResults &&
-          (searchResults?.slice(0, 5).map((item) => (
+          searchResults?.slice(0, 5).map((item) => (
             <div key={item.id} className="">
               <Link
                 to={`/category/${item.id}`}
-                className="flex  border items-center gap-2 p-1"
+                className="flex  border border-gray-400  hover:border-white items-center gap-2 p-1"
                 onClick={handleHideSearchBox}
               >
                 {item && item.backdrop_path ? (
@@ -93,13 +93,13 @@ const Search = ({ setIsInputView, isInputView }) => {
                 </p>
               </Link>
             </div>
-          )))
+          ))
         )}
 
         {/* {searchResults && searchResults} */}
         <div className="flex w-full gap-3 font-bold text-red-500 text-lg">
           <button
-            className="border flex-1 rounded-md bg-gray-800 py-1"
+            className="border flex-1 rounded-md  py-1"
             onClick={handleHideSearchBox}
           >
             Cancel

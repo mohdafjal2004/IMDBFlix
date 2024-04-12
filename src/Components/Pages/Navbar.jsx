@@ -34,14 +34,21 @@ const Navbar = () => {
               Browse
             </p>
             {isView && (
-              <div className="absolute top-16  bg-black  text-white border border-gray-300 py-2  z-10 px-1 box-content ">
-                <ul className="inline-block" onClick={() => setIsView(false)}>
-                  <li className="border-b ">
+              <div
+                className={`absolute min-w-[99%] left-0 ${
+                  isView ? "top-16" : "-top-10"
+                }   bg-black  text-white border border-gray-300   z-10  box-content `}
+              >
+                <ul
+                  className="inline-block border w-full"
+                  onClick={() => setIsView(false)}
+                >
+                  <li className="border-b py-1">
                     <Link to="/" className="cursor-pointer">
                       Home
                     </Link>
                   </li>
-                  <li className="border-b">
+                  <li className="border-b py-1">
                     <Link
                       to="/type"
                       state={{ menuType: "tv" }}
@@ -50,7 +57,7 @@ const Navbar = () => {
                       TV Shows
                     </Link>
                   </li>
-                  <li className="border-b">
+                  <li className="border-b py-1">
                     <Link
                       to="/type"
                       state={{ menuType: "movie" }}
@@ -59,7 +66,7 @@ const Navbar = () => {
                       Movies
                     </Link>
                   </li>
-                  <li className="border-b">New & Popular</li>
+                  <li className="border-b py-1">New & Popular</li>
                 </ul>
               </div>
             )}
@@ -99,9 +106,8 @@ const Navbar = () => {
           <img src={avatar} alt="Account logo" className="w-7 h-7 inline" />
         </div>
 
-
         <div
-          className={`absolute right-0 md:right-24  z-50 transition-all ease-out duration-300 ${
+          className={`absolute right-0 md:right-24  z-50 transition-all ease-out  duration-300 ${
             isInputView ? "  -top-[1000px]" : " top-16"
           }`}
         >
