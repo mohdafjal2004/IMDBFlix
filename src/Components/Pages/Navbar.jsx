@@ -55,7 +55,7 @@ const Navbar = () => {
                 }   bg-black  text-white border border-gray-300   z-10  box-content `}
               >
                 <ul
-                  className="inline-block border w-full"
+                  className="inline-block border w-full "
                   onClick={() => setIsView(false)}
                 >
                   <li className="border-b py-1">
@@ -88,23 +88,33 @@ const Navbar = () => {
           </div>
 
           {/* For medium screen */}
-          <div className="hidden md:flex text-white space-x-5  ">
-            <ul className="flex  gap-8">
+          <div className="hidden md:flex  space-x-5  ">
+            <ul className="flex  gap-8 text-gray-300 ">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" className="hover:text-white">
+                  Home
+                </Link>
               </li>
 
               <li>
-                <Link to="/type" state={{ menuType: "tv" }}>
+                <Link
+                  to="/type"
+                  state={{ menuType: "tv" }}
+                  className="hover:text-white"
+                >
                   TV Shows
                 </Link>
               </li>
               <li>
-                <Link to="/type" state={{ menuType: "movie" }}>
+                <Link
+                  to="/type"
+                  state={{ menuType: "movie" }}
+                  className="hover:text-white"
+                >
                   Movies
                 </Link>
               </li>
-              <li>New and Popular</li>
+              <li className="hover:text-white cursor-pointer">New and Popular</li>
             </ul>
           </div>
         </div>
