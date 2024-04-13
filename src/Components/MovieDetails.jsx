@@ -116,8 +116,8 @@ const MovieDetails = () => {
     <div className="parent ">
       <div className="movie_detail_outside  h-auto  ">
         <div
-          className="movie_detail_inside sm:flex sm:flex-row flex flex-col  sm:h-[500px] h-auto
-          w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative  bg-center bg-cover"
+          className="movie_detail_inside sm:flex sm:flex-row flex flex-col  sm:h-[500px] h-auto pt-16 md:pt-24 lg:pt-28 
+          w-screen md:p-10 md:pl-32  items-center py-8 px-2 sm:p-7 relative  bg-center md:bg-top bg-cover before:absolute before:-inset-1 before:bg-gradient-to-t before:from-black"
           style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="relative">
@@ -127,7 +127,7 @@ const MovieDetails = () => {
               className="rounded-lg  w-72 "
             />
           </div>
-          <div className="text-white ml-3 sm:ml-7 xl:pb-[150px] 2xl:pb-[170px]  sm:text-left sm:w-1/2 pt-8 space-y-2 h-auto ">
+          <div className="text-white ml-3 sm:ml-7 xl:pb-[150px] 2xl:pb-[170px]  sm:text-left sm:w-1/2 pt-8 space-y-2 h-auto relative ">
             {Api.tagline ? (
               <p className="text-xs font-roboto mb-3">{Api && Api.tagline}</p>
             ) : (

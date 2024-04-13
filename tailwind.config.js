@@ -14,5 +14,9 @@ module.exports = {
       roboto2: ["Roboto Serif", "serif"],
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require('tailwind-scrollbar-hide')
+],
+
 };

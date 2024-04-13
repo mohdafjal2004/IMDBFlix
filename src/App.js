@@ -22,7 +22,7 @@ import Type from "./Components/Pages/Type";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App scrollbar-hide">
       <BrowserRouter>
         <Navbar />
         <Routes>

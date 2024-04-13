@@ -3,12 +3,13 @@ import bell from "../Assets/bellsvg.svg";
 import avatar from "../Assets/avatar.png";
 import search from "../Assets/search.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "../Search";
 
 const Navbar = () => {
   const [isView, setIsView] = useState(false);
   const [isInputView, setIsInputView] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const handleDropDown = () => {
     setIsView(!isView);
   };
@@ -16,9 +17,23 @@ const Navbar = () => {
   const handleInputView = () => {
     setIsInputView(!isInputView);
   };
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 80) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    });
+  }, []);
   return (
-    <nav className="">
-      <div className="flex justify-between items-center h-16   md:px-6  2xl:px-24 px-4">
+    <nav
+      className={`fixed top-0 z-50 transition-bg duration-1000 ease-in-out w-full ${
+        scrolled ? "bg-black" : "bg-transparent"
+      }`}
+    >
+      <div className="flex justify-between items-center h-16   md:px-12  2xl:px-28 px-4">
         {/* Logo + Menus */}
         <div className="flex gap-4 md:gap-6 items-center text-lg">
           <Link to="/">
@@ -73,7 +88,7 @@ const Navbar = () => {
           </div>
 
           {/* For medium screen */}
-          <div className="hidden md:flex text-white space-x-5 ">
+          <div className="hidden md:flex text-white space-x-5  ">
             <ul className="flex  gap-8">
               <li>
                 <Link to="/">Home</Link>

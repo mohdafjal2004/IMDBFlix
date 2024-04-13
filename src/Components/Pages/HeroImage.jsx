@@ -1,6 +1,8 @@
 import react, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../Utils/API";
+import playIcon from "../Assets/black_play.png";
+import infoIcon from "../Assets/info.png";
 const key = process.env.REACT_APP_API_KEY;
 
 const HeroImage = () => {
@@ -24,29 +26,38 @@ const HeroImage = () => {
 
   return (
     <div
-      className=" relative bg-no-repeat  h-auto md:h-[600px] bg-cover md:bg-cover pt-20 sm:pb-44 pb-20 text-white  md:px-6  2xl:px-24 px-4  shadow-zinc-900 bg-center md:bg-right-top aspect-auto"
-      style={{ backgroundImage: `url(${bgImage})` }}
+      className="  relative   pt-72 md:pt-[200px] md:pb-[96px] bg-no-repeat lg:pt-[200px] xl:pt-[250px] xl:pb-32 md:px-6    lg:pb-[60px]  border  
+        text-white    2xl:min-h-[75vh]   2xl:px-24   
+         before:absolute before:-inset-1 before:bg-gradient-to-t before:from-black  
+            md:bg-fill bg-center bg-cover  md:bg-cover md:object-contain shadow-inner shad
+          md:bg-right-top "
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
     >
-      <div className="text-start  ml-3 md:ml-6 space-y-4 sm:w-1/2 md:w-[600px]   ">
-        <h1 className="md:text-5xl text-4xl font-roboto font-extrabold">
+      <div className="md:text-start    space-y-4 md:w-2/3  text-center flex flex-col px-4 lg:w-[50%] relative">
+        <h1 className="2xl:text-5xl text-4xl font-roboto font-extrabold ">
           {popular.original_title}
         </h1>
 
-        <div className="flex flex-row space-x-4 items-start text-lg font-semibold font-roboto">
-          <button className="flex  justify-center items-center bg-white text-black  rounded py-2 w-32 h-11">
-            Play
+        <div className=" text-base md:text- xl:text-xl  ">
+          <p className="line-clamp-3 md:line-clamp-4 2xl:font-semibold font-apple leading-5 lg:leading-7">
+            {popular.overview}
+          </p>
+        </div>
+        <div className="flex flex-row space-x-4 md:space-y-4   text-lg font-semibold   justify-center md:justify-start md:items-baseline">
+          <button className="flex  justify-center items-center bg-white text-black  rounded py-2 w-32 h-11 gap-2">
+            <img src={playIcon} alt="play_icon" className="w-3 h-3" />
+            <span>Play</span>
           </button>
           <Link
             to={`/category/${popular.id}`}
-            className=" flex  justify-center items-center text-white bg-gray-700  rounded py-2 w-32 h-11"
+            className=" flex  justify-center items-center text-white bg-gray-700  rounded py-2 w-32 h-11 gap-2 "
           >
-            More Info
+            <img src={infoIcon} alt="more_info_icon" className="w-3 h-3" />
+            <span> More Info</span>
           </Link>
         </div>
-
-        <p className="font-roboto2 text-base md:text-xl  drop-shadow-2xl">
-          {popular.overview}
-        </p>
       </div>
     </div>
   );

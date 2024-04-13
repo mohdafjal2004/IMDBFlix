@@ -1,12 +1,9 @@
-import { Link } from "react-router-dom";
 import Hero from "./Components/Pages/Hero";
 import HeroImage from "./Components/Pages/HeroImage";
-import Navbar from "./Components/Pages/Navbar";
 
 const HomePage = () => {
   return (
-    <div className="">
-
+    <div className="flex flex-col  gap-6  md:px-1 scrollbar-hide">
       <HeroImage />
       <Hero />
     </div>
