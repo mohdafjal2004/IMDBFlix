@@ -4,14 +4,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import DiscoverCard from "../DiscoverCard";
 
-const Popular = ({ apiPoint, heading }) => {
+const Categories = ({ apiPoint, heading }) => {
   const key = process.env.REACT_APP_API_KEY;
 
   const [popular, setpopular] = useState([]);
 
   const fetch = async () => {
     await axios
-      .get(`${apiPoint}?api_key=${key}&language=en-US`)
+      .get(`${apiPoint}api_key=${key}&language=en-US`)
       .then((response) => setpopular(response.data));
   };
 
@@ -43,4 +43,4 @@ const Popular = ({ apiPoint, heading }) => {
   );
 };
 
-export default Popular;
+export default Categories;

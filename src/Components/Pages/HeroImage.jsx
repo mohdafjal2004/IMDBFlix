@@ -26,7 +26,7 @@ const HeroImage = () => {
 
   return (
     <div
-      className="  relative   pt-72 md:pt-[200px] md:pb-[96px] bg-no-repeat lg:pt-[200px] xl:pt-[250px] xl:pb-32 md:px-6    lg:pb-[60px]  border  
+      className="  relative   pt-72 md:pt-[200px] md:pb-[96px] bg-no-repeat lg:pt-[200px] xl:pt-[250px] xl:pb-32 md:px-6    lg:pb-[60px]    
         text-white    2xl:min-h-[75vh]   2xl:px-24   
          before:absolute before:-inset-1 before:bg-gradient-to-t before:from-black  
             md:bg-fill bg-center bg-cover  md:bg-cover md:object-contain shadow-inner shad
