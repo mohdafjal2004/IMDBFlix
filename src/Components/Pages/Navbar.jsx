@@ -1,4 +1,4 @@
-import logo from "../Assets/netflix.svg";
+import logo from "../Assets/IMDBFlixLogo.png";
 import bell from "../Assets/bellsvg.svg";
 import avatar from "../Assets/avatar.png";
 import search from "../Assets/search.png";
