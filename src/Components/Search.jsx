@@ -70,6 +70,7 @@ const Search = ({ setIsInputView, isInputView }) => {
             <div key={item.id} className="">
               <Link
                 to={`/category/${item.id}`}
+                state={{ menuType: item.media_type }}
                 className="flex  border border-gray-400  hover:border-white items-center gap-2 p-1"
                 onClick={handleHideSearchBox}
               >
