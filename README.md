@@ -67,7 +67,7 @@ Install my-project with npm
   npm install my-project
   cd my-project
 ```
-    ## Color Reference
+    ## Color Referenc
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
