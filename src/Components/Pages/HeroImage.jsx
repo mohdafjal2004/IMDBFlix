@@ -52,6 +52,7 @@ const HeroImage = () => {
           </button>
           <Link
             to={`/category/${popular.id}`}
+            state={{ menuType: "movie" }}
             className=" flex  justify-center items-center text-white bg-gray-700  rounded py-2 w-32 h-11 gap-2 "
           >
             <img src={infoIcon} alt="more_info_icon" className="w-3 h-3" />

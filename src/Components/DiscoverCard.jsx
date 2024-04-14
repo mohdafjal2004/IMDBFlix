@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import supportImage from "./Assets/support_image.jpg";
 import { Link } from "react-router-dom";
 import playBtn from "./Assets/play.png";
@@ -6,13 +6,10 @@ import plusBtn from "./Assets/push.png";
 import likeBtn from "./Assets/like.png";
 import arrowBtn from "./Assets/arrow.png";
 
-const DiscoverCard = ({ item }) => {
+const DiscoverCard = ({ item, menuType }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const percentageVote = item && (item.vote_average / 10) * 100;
-
- 
-
 
   return (
     <div
@@ -37,8 +34,8 @@ const DiscoverCard = ({ item }) => {
             className="support_Image"
           />
         )}
-        {showDetails  && (
-          <div className="absolute -bottom-16 z-50  bg- w-full bg-gray-900  pb-3 rounded-b-lg">
+        {showDetails && (
+          <div className=" absolute z-50  -bottom-16   bg- w-full bg-gray-900  pb-3 rounded-b-lg">
             {/* Action row */}
             <div className="flex justify-between p-2">
               {/* Left side of action row */}
@@ -70,7 +67,7 @@ const DiscoverCard = ({ item }) => {
               </div>
               {/* Right side of action row */}
 
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/category/${item.id}`} state={{ menuType: menuType }}>
                 <img
                   src={arrowBtn}
                   alt="details_arrow_btn"
@@ -79,6 +76,7 @@ const DiscoverCard = ({ item }) => {
                 />
               </Link>
             </div>
+            {/* Name and Rating Row */}
             <div className="text-left px-2 font-bold">
               <p className="truncate">
                 {item.original_name || item.original_title}
@@ -87,6 +85,7 @@ const DiscoverCard = ({ item }) => {
                 {percentageVote && percentageVote.toFixed(2)}% Match
               </p>
             </div>
+            {/* Video Clip */}
           </div>
         )}
       </div>

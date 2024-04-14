@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../Utils/API.js";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DiscoverCard from "../DiscoverCard";
@@ -7,18 +7,18 @@ import loader from "../Assets/loader_animated.svg";
 const Type = () => {
   const location = useLocation();
   const { menuType } = location.state;
+  // console.log(menuType);
 
   const [apiData, setApiData] = useState([]);
   const [currPage, setCurrPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  console.log(loading);
 
   const fetch = async () => {
     setLoading(true);
     try {
       if (menuType) {
-        const res = await axios.get(
-          `https://api.themoviedb.org/3/discover/${menuType}?include_adult=true&include_null_first_air_dates=false&language=en-US&page=${currPage}&sort_by=popularity.desc`,
+        const res = await axios(
+          `/discover/${menuType}?include_adult=true&include_null_first_air_dates=false&language=en-US&page=${currPage}&sort_by=popularity.desc`,
           {
             headers: {
               Authorization:
@@ -70,7 +70,11 @@ const Type = () => {
                     key={item.id}
                     className=" duo:w-52 lg:w-72 xl:w-64 box-border "
                   >
-                    <DiscoverCard item={item} />
+                    <DiscoverCard
+                      item={item}
+                      menuType={menuType}
+                      
+                    />
                   </div>
                 ))}
             </div>

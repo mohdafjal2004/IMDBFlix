@@ -10,9 +10,9 @@ const Categories = ({ apiPoint, heading }) => {
   const [popular, setpopular] = useState([]);
 
   const fetch = async () => {
-    await axios
-      .get(`${apiPoint}api_key=${key}&language=en-US`)
-      .then((response) => setpopular(response.data));
+    await axios(`${apiPoint}api_key=${key}&language=en-US`).then((response) =>
+      setpopular(response.data)
+    );
   };
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Categories = ({ apiPoint, heading }) => {
       <div className=" md:px-6  2xl:px-8">
         <div>
           <h1 className="text-white text-left px-4 md:px-1  mb-3  font-bold text-2xl  ">
-            {heading} 
+            {heading}
           </h1>
           <div className=" flex gap-4  md:pt-4  md:px-6  2xl:px-4   overflow-auto scrollbar-hide">
             {popular &&
@@ -33,7 +33,7 @@ const Categories = ({ apiPoint, heading }) => {
                   key={item.id}
                   className="  min-w-full min-h-[300px]  md:min-w-[200px] md:min-h-[200px]"
                 >
-                  <DiscoverCard item={item} />
+                  <DiscoverCard item={item} menuType="movie" />
                 </div>
               ))}
           </div>

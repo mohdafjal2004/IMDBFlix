@@ -81,7 +81,15 @@ const Navbar = () => {
                       Movies
                     </Link>
                   </li>
-                  <li className="border-b py-1">New & Popular</li>
+                  <li className="border-b py-1">
+                    <Link
+                      to="/type"
+                      state={{ menuType: "tv" }}
+                      className="cursor-pointer"
+                    >
+                      New & Popular
+                    </Link>
+                  </li>
                 </ul>
               </div>
             )}
@@ -114,7 +122,15 @@ const Navbar = () => {
                   Movies
                 </Link>
               </li>
-              <li className="hover:text-white cursor-pointer">New and Popular</li>
+              <li className="hover:text-white cursor-pointer">
+                <Link
+                  to="/type"
+                  state={{ menuType: "tv" }}
+                  className="cursor-pointer"
+                >
+                  New & Popular
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
