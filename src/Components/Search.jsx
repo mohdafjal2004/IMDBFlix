@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import loader from "./Assets/loader_animated.svg";
 import supportImage from "./Assets/support_image.jpg";
@@ -8,6 +8,7 @@ const Search = ({ setIsInputView, isInputView }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const fetchResult = async () => {
     try {
       setLoading(true);
@@ -51,14 +52,30 @@ const Search = ({ setIsInputView, isInputView }) => {
     setIsInputView(!isInputView);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 180) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    });
+  }, []);
+
   return (
-    <div className="text-white  z-50  w-screen md:w-auto bg-black ">
+    <div
+      className={`text-white  z-50  w-screen md:w-auto  ${
+        scrolled ? "bg-black" : "backdrop-blur-lg"
+      } `}
+    >
       <div className="flex flex-col p-4 gap-4 overflow-hidden">
         <input
           type="text"
           value={searchInput}
           onChange={handleInputChange}
-          className="bg-black text-white border p-2 focus:outline-none rounded-sm"
+          className={` text-white ${
+            scrolled ? "bg-transparent " : "bg-transparent "
+          }  text-black border p-2 focus:outline-none rounded-sm`}
         />
         {loading ? (
           <div className="flex justify-center">
