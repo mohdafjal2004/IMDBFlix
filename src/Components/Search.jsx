@@ -52,13 +52,13 @@ const Search = ({ setIsInputView, isInputView }) => {
   };
 
   return (
-    <div className="text-white  z-50 border-2 w-screen md:w-auto bg-black ">
+    <div className="text-white  z-50  w-screen md:w-auto bg-black ">
       <div className="flex flex-col p-4 gap-4 overflow-hidden">
         <input
           type="text"
           value={searchInput}
           onChange={handleInputChange}
-          className="text-black p-1 focus:outline-none rounded-sm"
+          className="bg-black text-white border p-2 focus:outline-none rounded-sm"
         />
         {loading ? (
           <div className="flex justify-center">
